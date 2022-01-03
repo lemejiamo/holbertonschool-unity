@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,11 +8,18 @@ public class PlayerController : MonoBehaviour
     // control de speed of movement
     public float speed = 20f;
 
+    // control the score of game
+    private int score = 0;
+
+    // control the healt
+    public int health = 5;
+
     // Start is called before the first frame update
     void Start()
     {
         // instances a GameObject
         rb = GetComponent<Rigidbody>();
+
     }
     //Executed one time pre-frame
     void Update()
@@ -29,5 +34,41 @@ public class PlayerController : MonoBehaviour
 
         //Aplies vector over GameObject
         rb.AddForce(controller * speed);
+
+        if (this.health == 0)
+        {
+            Debug.Log("Game Over!");
+            RestartGame();
+        }
+    }
+
+    // Pick up a coin and destroy it when touch it
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Pickup")
+        {
+            this.score += 1;
+            string log = "Score:" + " " + score;
+            Debug.Log(log);
+            DestroyObject(other.gameObject, 1.0f);
+        }
+
+        if (other.tag == "Trap")
+        {
+            this.health -= 1;
+            string log = "Health:" + " " + health;
+            Debug.Log(log);
+        }
+
+        if (other.tag == "Goal")
+        {
+            Debug.Log("You Win!");
+        }
+    }
+
+    // function to restart the game
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
