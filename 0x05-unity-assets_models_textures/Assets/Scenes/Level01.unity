@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ofset: {x: 0, y: 2, z: 10}
   lerpValue: 1
-  sensitive: 0
+  sensitive: 2
 --- !u!1 &1049047107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,8 +1453,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalMove: 0
   verticalMove: 0
+  speed: 50
+  shouldJump: 0
+  onGround: 0
+  jumpForce: {x: 0, y: 2, z: 0}
+  playerInput: {x: 0, y: 0, z: 0}
+  playerDirection: {x: 0, y: 0, z: 0}
   player: {fileID: 1232249461}
-  speed: 100
+  rb: {fileID: 0}
 --- !u!143 &1232249461
 CharacterController:
   m_ObjectHideFlags: 0
