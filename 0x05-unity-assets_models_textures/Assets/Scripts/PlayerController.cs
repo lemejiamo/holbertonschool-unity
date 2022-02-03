@@ -52,9 +52,10 @@ public class PlayerController : MonoBehaviour
         SetGravity();
         // checks if the player wanna jump
         Jump();
-
         // execute the move
         MovePlayer();
+        //checks if player fall to emptyness and nothing
+        Fall();
     }
     // gets camera position
     void CameraDirection()
@@ -115,5 +116,20 @@ public class PlayerController : MonoBehaviour
     {
         // make the  move
         player.Move(playerDirection * Time.deltaTime);
+    }
+
+    private void Fall()
+    {
+        Vector3 position = player.transform.position;
+        //Debug.Log(position);
+        if(position.y < -40)
+        {
+            float xPosition = position.x;
+            //Debug.Log(xPosition);
+            float zPosition = position.z;
+            //Debug.Log(zPosition);
+
+            player.transform.Translate(new Vector3(-xPosition, 80f, -zPosition));
+        }
     }
 }
