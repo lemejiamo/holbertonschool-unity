@@ -11368,7 +11368,7 @@ GameObject:
   - component: {fileID: 3739470802287608096}
   - component: {fileID: 1667754274801824451}
   m_Layer: 5
-  m_Name: TimeCanvas
+  m_Name: TimerCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11547,7 +11547,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 00:00.00
+  m_Text: 0:00.00
 --- !u!224 &5957477332498916054
 RectTransform:
   m_ObjectHideFlags: 0
