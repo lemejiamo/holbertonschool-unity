@@ -122,14 +122,14 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 position = player.transform.position;
         //Debug.Log(position);
-        if(position.y < -40)
+        if (position.y < -150f)
         {
             float xPosition = position.x;
             //Debug.Log(xPosition);
             float zPosition = position.z;
             //Debug.Log(zPosition);
 
-            player.transform.Translate(new Vector3(-xPosition, 80f, -zPosition));
+            player.transform.Translate(new Vector3(-xPosition, 300f, -zPosition));
         }
     }
 }
