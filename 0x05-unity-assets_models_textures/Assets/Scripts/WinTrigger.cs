@@ -27,7 +27,5 @@ public class WinTrigger : MonoBehaviour
             finish.text = timer.text;
             finish.enabled = true;
         }
-
-        
     }
 }
