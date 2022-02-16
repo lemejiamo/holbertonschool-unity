@@ -13,9 +13,9 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level01.onClick.AddListener(delegate { LoadLevel(1); });
-        level02.onClick.AddListener(delegate { LoadLevel(2); });
-        level03.onClick.AddListener(delegate { LoadLevel(3); });
+        level01.onClick.AddListener(delegate { LevelSelect(1); });
+        level02.onClick.AddListener(delegate { LevelSelect(2); });
+        level03.onClick.AddListener(delegate { LevelSelect(3); });
     }
 
     // Update is called once per frame
@@ -24,11 +24,10 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    void LoadLevel(int level)
+    void LevelSelect(int level)
     {
         string string_level;
         string_level = "Level0" + level.ToString();
-        Debug.Log(string_level.ToString());
         SceneManager.LoadScene(string_level);
     }
 }
