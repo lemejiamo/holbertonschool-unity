@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6255925919644223456, guid: cec57443c7c72c64ab66609ed04fbc80, type: 3}
       propertyPath: m_TagString
-      value: PauseCanvas
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6255925919644223484, guid: cec57443c7c72c64ab66609ed04fbc80, type: 3}
       propertyPath: m_Pivot.x
