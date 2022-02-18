@@ -11594,10 +11594,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4804569875916352562, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: -306223622, guid: e96e7d1a4cfc7844a95a2b291c9434b0, type: 3}
     - target: {fileID: 4804569876552072884, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4804569876754122043, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: -306223622, guid: e96e7d1a4cfc7844a95a2b291c9434b0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
 --- !u!114 &5045136626677603724 stripped
