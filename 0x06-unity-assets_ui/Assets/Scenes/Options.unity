@@ -1165,8 +1165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backButton: {fileID: 0}
-  SFX: 0
-  BGM: 0
 --- !u!1 &863160251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1177,7 @@ GameObject:
   - component: {fileID: 863160254}
   - component: {fileID: 863160253}
   m_Layer: 5
-  m_Name: Handle
+  m_Name: HandleBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2288,7 +2286,7 @@ GameObject:
   - component: {fileID: 2038768650}
   - component: {fileID: 2038768649}
   m_Layer: 5
-  m_Name: Handle
+  m_Name: HandleSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

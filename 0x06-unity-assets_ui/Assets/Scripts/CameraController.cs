@@ -9,7 +9,6 @@ public class CameraController : MonoBehaviour
     private Transform target;
     [Range (0, 1)] public float lerpValue;
     [Range(0, 10)] public float sensitive;
-    private bool isInverted = false;
     public int inverted;
 
     private void Start()
@@ -17,13 +16,11 @@ public class CameraController : MonoBehaviour
         if (PlayerPrefs.GetString("isInverted") == "true")
         {
             Debug.Log("is inverted");
-            isInverted = true;
             inverted = -1;
         }
         else
         {
             Debug.Log("not is inverted");
-            isInverted = false;
             inverted = 1;
         }
         target = GameObject.Find("Player").transform;

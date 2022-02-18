@@ -9,48 +9,56 @@ public class OptionsMenu : MonoBehaviour
     public GameObject backButton;
     private GameObject applyButton;
     private Toggle isInverted;
-    public float SFX;
-    public float BGM;
-    public Slider volSFX;
-    public Slider volBGM;
-
+    private float SFX;
+    private float BGM;
+    private RectTransform markSFX;
+    private RectTransform markBGM;
 
     // Start is called before the first frame update
     void Start()
     {
-
         isInverted = GameObject.Find("InvertYToggle").GetComponent<Toggle>();
         backButton = GameObject.Find("BackButton");
         applyButton = GameObject.Find("ApplyButton");
         backButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Back(); });
         applyButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Apply(); });
-
+        markSFX = GameObject.Find("HandleSFX").GetComponent<RectTransform>();
+        markBGM = GameObject.Find("HandleBGM").GetComponent<RectTransform>();
+        SFX = PlayerPrefs.GetFloat("SFX");
+        BGM = PlayerPrefs.GetFloat("BGM");
 
         if (PlayerPrefs.GetString("isInverted") == "true")
             isInverted.isOn = true;
         else
             isInverted.isOn = false;
 
-        if (PlayerPrefs.GetFloat("SFX") != 0)
+        float imposible = PlayerPrefs.GetFloat("imposible");
+
+        if (SFX  == 0f)
         {
-            SFX = PlayerPrefs.GetFloat("SFX");
-            GameObject.Find("FillSFX").GetComponent<RectTransform>().anchorMax.Set(SFX, 1f);
+            markSFX.anchorMin = new Vector2(0.5f, 0f);
+            markSFX.anchorMax = new Vector2(0.5f, 1f);
+            GameObject.Find("FillSFX").GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1f);
         }
         else
         {
-            GameObject.Find("FillSFX").GetComponent<RectTransform>().anchorMax.Set(0.5f, 1f);
+            markSFX.anchorMin = new Vector2(SFX, 0f);
+            markSFX.anchorMax = new Vector2(SFX, 1f);
+            GameObject.Find("FillSFX").GetComponent<RectTransform>().anchorMax = new Vector2(SFX, 1f);
         }
 
-        if (PlayerPrefs.GetFloat("BGM") != 0)
+        if (BGM == 0f)
         {
-            BGM = PlayerPrefs.GetFloat("BGM");
-            GameObject.Find("FillBGM").GetComponent<RectTransform>().anchorMax.Set(BGM, 1f);
+            markBGM.anchorMin = new Vector2(0.5f, 0f);
+            markBGM.anchorMax = new Vector2(0.5f, 1f);
+            GameObject.Find("FillBGM").GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1f);
         }
         else
         {
-            GameObject.Find("FillBGM").GetComponent<RectTransform>().anchorMax.Set(0.5f, 1f);
+            markBGM.anchorMin = new Vector2(BGM, 0f);
+            markBGM.anchorMax = new Vector2(BGM, 1f);
+            GameObject.Find("FillBGM").GetComponent<RectTransform>().anchorMax = new Vector2(BGM, 1f);
         }
-
     }
 
     // Update is called once per frame
