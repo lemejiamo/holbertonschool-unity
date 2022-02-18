@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     [Range (0, 1)] public float lerpValue;
     [Range(0, 10)] public float sensitive;
     public int inverted;
+    public bool isInverted;
 
     private void Start()
     {
