@@ -7,6 +7,7 @@ using System;
 public class Timer : MonoBehaviour
 {
     public Text timer;
+    private float time = 0.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -17,24 +18,20 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool power = timer.isActiveAndEnabled;
-        if (power == true)
+        bool timer_state = timer.isActiveAndEnabled;
+        if (timer_state == true)
         {
-            string textTime = Time.fixedTime.ToString("f");
-            //Debug.Log($"texttime {textTime}");
+            time += Time.deltaTime;
+            string textTime = time.ToString("f");
             float timeMeasure = float.Parse(textTime, System.Globalization.CultureInfo.InvariantCulture) / 100f;
-            //timeMeasure = Mathf.Round(timeMeasure);
-            //Debug.Log($"timeMeasure {timeMeasure}");
             float minutes = Mathf.Floor(timeMeasure / 60);
             int intMinutes = (int)minutes;
             float seconds = (timeMeasure % 60);
 
-            //Debug.Log($"minutes {minutes}");
-            //Debug.Log($"seconds {seconds}");
-
             textTime = minutes.ToString("00") + ":" + seconds.ToString("00.00");
             timer.text = textTime;
         }
+       
 
     }
 }
