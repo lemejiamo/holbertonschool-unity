@@ -3183,7 +3183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456194b583a9e9d488a426c0e41e69e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winCanvas: {fileID: 572687793}
   menu: {fileID: 2042329474}
   next: {fileID: 954918864}
 --- !u!4 &587224532 stripped
@@ -11754,6 +11753,10 @@ PrefabInstance:
     - target: {fileID: 669353132050251221, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931183857443987744, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_Text
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 1931183857443987744, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
       propertyPath: m_FontData.m_Font
