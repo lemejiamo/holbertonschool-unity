@@ -7,12 +7,14 @@ using System;
 public class Timer : MonoBehaviour
 {
     public Text timer;
+    public Text record;
     private float time = 0.0f;
     
     // Start is called before the first frame update
     void Start()
     {
         timer.text = "00:00.0"; 
+        record = GameObject.Find("/WinCanvas/FinalTime").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -33,5 +35,9 @@ public class Timer : MonoBehaviour
         }
        
 
+    }
+    public void Win()
+    {
+        record.text = timer.ToString();
     }
 }

@@ -3155,6 +3155,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ecbf57df6fb0944293a3b91f91f3723, type: 3}
+--- !u!114 &559256273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2908732567877217101, guid: 1504160256403a74789aca01fce0f7bc, type: 3}
+  m_PrefabInstance: {fileID: 2908732567353817500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &572687793 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2908732567854873645, guid: 1504160256403a74789aca01fce0f7bc, type: 3}
+  m_PrefabInstance: {fileID: 2908732567353817500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &572687798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572687793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456194b583a9e9d488a426c0e41e69e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winCanvas: {fileID: 572687793}
+  menu: {fileID: 2042329474}
+  next: {fileID: 954918864}
 --- !u!4 &587224532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 2dcb55e9abd0bd940aa3529714af2223, type: 3}
@@ -5044,6 +5075,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d0a409b132372084987f40183993e371, type: 3}
   m_PrefabInstance: {fileID: 742564796}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &954918864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6348444623028613662, guid: 1504160256403a74789aca01fce0f7bc, type: 3}
+  m_PrefabInstance: {fileID: 2908732567353817500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &956363702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6602,6 +6644,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fd8f474c035c34cb687e3eca462b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!143 &1232249470 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 7600797078417169169, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}
+  m_PrefabInstance: {fileID: 7600797079368333668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1232788349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8516,17 +8563,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1514521324 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1444525726321994597, guid: d4bd6670f4ccdbb428542e0974c4dbe6, type: 3}
-  m_PrefabInstance: {fileID: 1444525727760263561}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1542492886
@@ -10660,7 +10696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 5045136626677603724}
-  finish: {fileID: 1514521324}
+  record: {fileID: 559256273}
+  winCanvas: {fileID: 572687793}
 --- !u!54 &1985357917
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10936,6 +10973,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 7dad57b5776338340bf488cd934b688f, type: 3}
   m_PrefabInstance: {fileID: 787881709}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2042329474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6348444621932751952, guid: 1504160256403a74789aca01fce0f7bc, type: 3}
+  m_PrefabInstance: {fileID: 2908732567353817500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2042590822
 GameObject:
   m_ObjectHideFlags: 0
@@ -11397,6 +11445,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444525726321994597, guid: d4bd6670f4ccdbb428542e0974c4dbe6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444525726321994597, guid: d4bd6670f4ccdbb428542e0974c4dbe6, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5d80938865876b048b7fd85637a28641, type: 3}
     - target: {fileID: 1977795752632746728, guid: d4bd6670f4ccdbb428542e0974c4dbe6, type: 3}
       propertyPath: m_Name
       value: TimerCanvas
@@ -11598,6 +11654,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2908732567877217106, guid: 1504160256403a74789aca01fce0f7bc, type: 3}
+      propertyPath: m_Name
+      value: FinalTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908732567877217106, guid: 1504160256403a74789aca01fce0f7bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1504160256403a74789aca01fce0f7bc, type: 3}
 --- !u!1001 &4804569876892250971
@@ -11691,6 +11755,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1931183857443987744, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5d80938865876b048b7fd85637a28641, type: 3}
+    - target: {fileID: 2831762262776758775, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5d80938865876b048b7fd85637a28641, type: 3}
+    - target: {fileID: 3500796234173901255, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5d80938865876b048b7fd85637a28641, type: 3}
     - target: {fileID: 4804569875916352562, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
       propertyPath: m_SpriteState.m_SelectedSprite
       value: 
@@ -11699,10 +11775,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4804569876552072884, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4804569876754122043, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
       propertyPath: m_SpriteState.m_SelectedSprite
       value: 
       objectReference: {fileID: -306223622, guid: e96e7d1a4cfc7844a95a2b291c9434b0, type: 3}
+    - target: {fileID: 7786234787943330338, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5d80938865876b048b7fd85637a28641, type: 3}
+    - target: {fileID: 8163411155112105271, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: da4320a1e4f9ba44b8d90f00d30b0dc1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0a77475df6f824ba66376127bb2d1d, type: 3}
 --- !u!114 &5045136626677603724 stripped
@@ -11791,9 +11879,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7600797078417169182, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1232249470}
     - target: {fileID: 7600797078417169183, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}
       propertyPath: timer
       value: 
       objectReference: {fileID: 5045136626677603724}
+    - target: {fileID: 7600797078417169183, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}
+      propertyPath: record
+      value: 
+      objectReference: {fileID: 559256273}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}

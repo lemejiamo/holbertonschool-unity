@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class WinTrigger : MonoBehaviour
 {
     public Text timer;
-    public Text finish;
+    public Text record;
+    public GameObject winCanvas;
+    private PlayerController controller;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Set's the WinCanvas GameObject as default
+        controller = GameObject.Find("Player").GetComponent<PlayerController>(); 
     }
 
     // Update is called once per frame
@@ -24,8 +28,9 @@ public class WinTrigger : MonoBehaviour
         if (other.name == "Player")
         {
             timer.enabled = false;
-            finish.text = timer.text;
-            finish.enabled = true;
+            record.text = timer.text;
+            winCanvas.SetActive(true);
+            controller.enabled = false;
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public GameObject backButton;
+    private GameObject backButton;
     private GameObject applyButton;
     private Toggle isInverted;
     private float SFX;
@@ -17,13 +17,19 @@ public class OptionsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isInverted = GameObject.Find("InvertYToggle").GetComponent<Toggle>();
+        // Identify the Buttons and the GameObjects in the scene
         backButton = GameObject.Find("BackButton");
         applyButton = GameObject.Find("ApplyButton");
+        isInverted = GameObject.Find("InvertYToggle").GetComponent<Toggle>();
+        markBGM = GameObject.Find("HandleBGM").GetComponent<RectTransform>();
+        markSFX = GameObject.Find("HandleSFX").GetComponent<RectTransform>();
+
+        // adds events to the buttons
         backButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Back(); });
         applyButton.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Apply(); });
-        markSFX = GameObject.Find("HandleSFX").GetComponent<RectTransform>();
-        markBGM = GameObject.Find("HandleBGM").GetComponent<RectTransform>();
+
+
+        // got the default volume of the game
         SFX = PlayerPrefs.GetFloat("SFX");
         BGM = PlayerPrefs.GetFloat("BGM");
 
@@ -31,8 +37,6 @@ public class OptionsMenu : MonoBehaviour
             isInverted.isOn = true;
         else
             isInverted.isOn = false;
-
-        float imposible = PlayerPrefs.GetFloat("imposible");
 
         if (SFX  == 0f)
         {
