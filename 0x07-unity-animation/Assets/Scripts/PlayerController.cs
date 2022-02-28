@@ -11,18 +11,19 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jumpForce;
     public float gravityValue;
+    public Vector3 playerInput; // stores the vector transfrom to applies the movement
+    public Vector3 playerDirection; // stores the vector transfrom to applies the movement
+
+    // public objs 
+    // Assign this Objects in Inspertor Window
+    public Camera mainCamera;
 
     // private objs
     private float fallVelocity;
 
     // objects to control the camera
-    private Camera mainCamera;
     private Vector3 camForward;
     private Vector3 camRigth;
-
-    // stores the vector transfrom to applies the movement
-    public Vector3 playerInput;
-    public Vector3 playerDirection;
 
     // instance from required classes
     public CharacterController player;
@@ -32,8 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         // instance required objects
         player = GetComponent<CharacterController>();
-        // init set
-        mainCamera = FindObjectOfType<Camera>();
+        //find the GameObject camera by code when the compoenent is enable in the scene
+        //mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         gravityValue = 9.81f;
         jumpForce = 10f;
         speed = 30f;
