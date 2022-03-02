@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float gravityValue;
     public Vector3 playerInput; // stores the vector transfrom to applies the movement
     public Vector3 playerDirection; // stores the vector transfrom to applies the movement
+    //public Quaternion playerRotation;
 
     // public objs 
     // Assign this Objects in Inspertor Window
@@ -76,14 +77,20 @@ public class PlayerController : MonoBehaviour
     {
         // Gets the input 
         horizontalMove = Input.GetAxis("Horizontal");
+        
+        //horizontalMove = 0f;
         verticalMove = Input.GetAxis("Vertical");
+
         // Create the movement vector
         playerInput = new Vector3(horizontalMove, 0, verticalMove);
         playerInput = Vector3.ClampMagnitude(playerInput, 1);
+        
         // applies cam direction correction to player 
-        playerDirection = playerInput.x * camRigth + playerInput.z * camForward;
+        playerDirection = (playerInput.x * camRigth) + (playerInput.z * camForward);
+        
         // aplies the speed to direction vector
         playerDirection = playerDirection * speed;
+        
     }
 
     //function to set the gravity
@@ -117,18 +124,19 @@ public class PlayerController : MonoBehaviour
     {
         // make the  move
         player.Move(playerDirection * Time.deltaTime);
+        playerDirection.y = 0f;
+        player.transform.LookAt(player.transform.position + playerDirection);
     }
 
     private void Fall()
     {
         Vector3 position = player.transform.position;
-        //Debug.Log(position);
         if (position.y < -150f)
         {
             float xPosition = position.x;
-            //Debug.Log(xPosition);
+            Debug.Log(xPosition);
             float zPosition = position.z;
-            //Debug.Log(zPosition);
+            Debug.Log(zPosition);
 
             player.transform.Translate(new Vector3(-xPosition, 300f, -zPosition));
         }

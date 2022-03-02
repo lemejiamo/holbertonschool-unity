@@ -16,21 +16,26 @@ public class CameraController : MonoBehaviour
     {
         if (PlayerPrefs.GetString("isInverted") == "true")
         {
-            Debug.Log("is inverted");
+            Debug.Log("Y axis is inverted");
             inverted = -1;
         }
         else
         {
-            Debug.Log("not is inverted");
+            Debug.Log("Y axis is not inverted");
             inverted = 1;
         }
         target = GameObject.Find("Player").transform;
+        //ofset = new Vector3(-6f, 2f, 0f);
     }
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("Mouse Buton pressed");
+            ofset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * sensitive, Vector3.up) * Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * inverted * sensitive, Vector3.left) * ofset;
+        }
         transform.position = Vector3.Lerp(transform.position, target.position + ofset, lerpValue);
-        ofset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * sensitive, Vector3.up) * Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * inverted * sensitive, Vector3.left) * ofset;
         transform.LookAt(target);
     }
 }
