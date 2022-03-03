@@ -5347,6 +5347,11 @@ MonoBehaviour:
   sensitive: 2
   inverted: 0
   isInverted: 0
+--- !u!1 &985464033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7600797078417169175, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}
+  m_PrefabInstance: {fileID: 7600797079368333668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &991395035
 GameObject:
   m_ObjectHideFlags: 0
@@ -6728,7 +6733,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7600797078417169183, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}
   m_PrefabInstance: {fileID: 7600797079368333668}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 985464033}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56fd8f474c035c34cb687e3eca462b93, type: 3}
@@ -9228,7 +9233,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7600797078417169182, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}
   m_PrefabInstance: {fileID: 7600797079368333668}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 985464033}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01ac65ffddcaf9041808266e866f9d19, type: 3}
@@ -9239,6 +9244,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7600797078417169181, guid: b9e36d09bae8f7f409e4dca2ae3ca759, type: 3}
   m_PrefabInstance: {fileID: 7600797079368333668}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1650220679
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985464033}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 672eef9121cba0c4a9bb31a59a243e5c, type: 3}
+  m_Controller: {fileID: 9100000, guid: 37c2f81b69e66b94c952cfcf2cac114a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1658460742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: cfd71611720260346920e9b33e19457a, type: 3}
@@ -11258,6 +11283,10 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 1a1a32cd830585d42af503eab4c22814, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 672eef9121cba0c4a9bb31a59a243e5c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 672eef9121cba0c4a9bb31a59a243e5c, type: 3}
       propertyPath: m_Controller
       value: 

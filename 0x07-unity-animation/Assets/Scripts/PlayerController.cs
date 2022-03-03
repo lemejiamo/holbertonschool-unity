@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jumpForce;
     public float gravityValue;
+    public bool running; 
     public Vector3 playerInput; // stores the vector transfrom to applies the movement
     public Vector3 playerDirection; // stores the vector transfrom to applies the movement
     //public Quaternion playerRotation;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     // private objs
     private float fallVelocity;
+    private Animator animator;
 
     // objects to control the camera
     private Vector3 camForward;
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         // instance required objects
         player = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         //find the GameObject camera by code when the compoenent is enable in the scene
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         gravityValue = 9.81f;
@@ -77,8 +80,6 @@ public class PlayerController : MonoBehaviour
     {
         // Gets the input 
         horizontalMove = Input.GetAxis("Horizontal");
-        
-        //horizontalMove = 0f;
         verticalMove = Input.GetAxis("Vertical");
 
         // Create the movement vector
@@ -90,6 +91,18 @@ public class PlayerController : MonoBehaviour
         
         // aplies the speed to direction vector
         playerDirection = playerDirection * speed;
+
+        // condition to stablish  if the player is running or not
+        if (horizontalMove == 0 && verticalMove == 0)
+        {
+            running = false;
+            animator.SetBool("running", running);
+        }
+        else
+        {
+            running = true;
+            animator.SetBool("running", running);
+        }
         
     }
 
