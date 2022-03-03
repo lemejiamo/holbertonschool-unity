@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float gravityValue;
     public float fallVelocity;
     public bool running; 
-    public bool jumping; 
+    public bool onAir; 
     public bool stand; 
     public Vector3 playerInput; // stores the vector transfrom to applies the movement
     public Vector3 playerDirection; // stores the vector transfrom to applies the movement
@@ -64,6 +64,10 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         //checks if player fall to emptyness and nothing
         Fall();
+        // check if the player stil are in the air
+        OnAir();
+        // sets the paratameters to play the animations
+        SetAnimator();
     }
     // gets camera position
     void CameraDirection()
@@ -99,12 +103,12 @@ public class PlayerController : MonoBehaviour
         if (horizontalMove == 0 && verticalMove == 0)
         {
             running = false;
-            animator.SetBool("running", running);
+            stand = true;
         }
         else
         {
             running = true;
-            animator.SetBool("running", running);
+            stand = false;
         }
         
     }
@@ -133,17 +137,25 @@ public class PlayerController : MonoBehaviour
         {
             fallVelocity = jumpForce;
             playerDirection.y = fallVelocity;
-            jumping = true;
-            animator.SetBool("Jumping", jumping);
-            animator.SetBool("running", false);
-        }
-        else
-        {
-            jumping = false;
-            animator.SetBool("Jumping", jumping);
+            onAir = true;
         }
     }
 
+    // checks if the player  is on air
+    private void OnAir()
+    {
+        if (player.isGrounded)
+        {
+            onAir = false;
+        }
+        else
+        {
+            onAir = true;
+            stand = false;
+        }
+    }
+
+    // execute the move of the player
     private void MovePlayer()
     {
         // make the  move
@@ -152,6 +164,7 @@ public class PlayerController : MonoBehaviour
         player.transform.LookAt(player.transform.position + playerDirection);
     }
 
+    // checks if the player is falling
     private void Fall()
     {
         Vector3 position = player.transform.position;
@@ -166,5 +179,27 @@ public class PlayerController : MonoBehaviour
 
             player.transform.Translate(new Vector3(-xPosition, 300f, -zPosition));
         }
+    }
+
+
+    /*private void OnGround()
+    {
+        if (player.isGrounded)
+        {
+        }
+        else
+        {
+            animator.SetBool("running", false);
+            animator.SetBool("Stand", false);
+            animator.SetBool("Jumping", true);
+        }
+    }*/
+
+    //Sets the parameters to the animator controller
+    private void SetAnimator()
+    {
+        animator.SetBool("running", running);
+        animator.SetBool("Stand", stand);
+        animator.SetBool("Jumping", onAir);
     }
 }
