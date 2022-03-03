@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviour
     public float gravityValue;
     public float fallVelocity;
     public bool running; 
-    public bool onAir; 
-    public bool stand; 
+    public bool jumping; 
+    public bool stand;
+    public bool onGround;
+    public bool falling;
     public Vector3 playerInput; // stores the vector transfrom to applies the movement
     public Vector3 playerDirection; // stores the vector transfrom to applies the movement
 
@@ -137,7 +139,7 @@ public class PlayerController : MonoBehaviour
         {
             fallVelocity = jumpForce;
             playerDirection.y = fallVelocity;
-            onAir = true;
+            jumping = true;
         }
     }
 
@@ -146,13 +148,22 @@ public class PlayerController : MonoBehaviour
     {
         if (player.isGrounded)
         {
-            onAir = false;
+            onGround = true;
+            jumping = false;
+            falling = false;
         }
-        else
+        else if (player.transform.position.y < -20f)
         {
-            onAir = true;
+            falling = true;
+            jumping = false;
+            onGround = false;
             stand = false;
         }
+        /*else if (falling  == true)
+        {
+            jumping = false;
+            onGround = false;
+        }*/
     }
 
     // execute the move of the player
@@ -168,38 +179,27 @@ public class PlayerController : MonoBehaviour
     private void Fall()
     {
         Vector3 position = player.transform.position;
-        if (position.y < -150f)
+        if (position.y < -40f)
         {
             //resets the rotation of player
             player.transform.rotation = new Quaternion(0, 0, 0, 0);
             float xPosition = position.x;
-            Debug.Log(xPosition);
             float zPosition = position.z;
+            Debug.Log(xPosition);
             Debug.Log(zPosition);
-
-            player.transform.Translate(new Vector3(-xPosition, 300f, -zPosition));
+            OnAir();
+            player.transform.Translate(new Vector3(-xPosition, 100f, -zPosition));
         }
     }
 
-
-    /*private void OnGround()
-    {
-        if (player.isGrounded)
-        {
-        }
-        else
-        {
-            animator.SetBool("running", false);
-            animator.SetBool("Stand", false);
-            animator.SetBool("Jumping", true);
-        }
-    }*/
 
     //Sets the parameters to the animator controller
     private void SetAnimator()
     {
         animator.SetBool("running", running);
         animator.SetBool("Stand", stand);
-        animator.SetBool("Jumping", onAir);
+        animator.SetBool("Jumping", jumping);
+        animator.SetBool("onground", onGround);
+        animator.SetBool("Falling", falling);
     }
 }
