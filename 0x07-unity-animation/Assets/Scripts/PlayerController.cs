@@ -4,41 +4,44 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // public objs 
+    // public vars
     // for debuging purposes
     public float horizontalMove;
     public float verticalMove;
     public float speed;
     public float jumpForce;
     public float gravityValue;
+    public float fallVelocity;
     public bool running; 
+    public bool jumping; 
+    public bool stand; 
     public Vector3 playerInput; // stores the vector transfrom to applies the movement
     public Vector3 playerDirection; // stores the vector transfrom to applies the movement
-    //public Quaternion playerRotation;
 
-    // public objs 
-    // Assign this Objects in Inspertor Window
-    public Camera mainCamera;
 
     // private objs
-    private float fallVelocity;
-    private Animator animator;
-
     // objects to control the camera
     private Vector3 camForward;
     private Vector3 camRigth;
 
     // instance from required classes
-    public CharacterController player;
+    // public objs 
+    // Assign this Objects in your Inspertor Window
+    public Camera mainCamera; // this GameObjects can be assigned by code too.
+    public CharacterController player; // this GameObjects can be assigned by code too.
+    private Animator animator; // this GameObjects is assigned by code.
 
     // Start is called before the first frame update
     void Start()
     {
-        // instance required objects
+        // Gets the  required GameObjects
         player = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
         //find the GameObject camera by code when the compoenent is enable in the scene
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        // sets default values for physics
         gravityValue = 9.81f;
         jumpForce = 10f;
         speed = 30f;
@@ -130,6 +133,14 @@ public class PlayerController : MonoBehaviour
         {
             fallVelocity = jumpForce;
             playerDirection.y = fallVelocity;
+            jumping = true;
+            animator.SetBool("Jumping", jumping);
+            animator.SetBool("running", false);
+        }
+        else
+        {
+            jumping = false;
+            animator.SetBool("Jumping", jumping);
         }
     }
 
@@ -146,6 +157,8 @@ public class PlayerController : MonoBehaviour
         Vector3 position = player.transform.position;
         if (position.y < -150f)
         {
+            //resets the rotation of player
+            player.transform.rotation = new Quaternion(0, 0, 0, 0);
             float xPosition = position.x;
             Debug.Log(xPosition);
             float zPosition = position.z;
